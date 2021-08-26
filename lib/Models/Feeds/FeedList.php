@@ -164,9 +164,7 @@ class FeedList implements ModelInterface, ArrayAccess, IterableType
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -189,7 +187,7 @@ class FeedList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetExists($offset)
     {
-        return isset($this->container[$offset]);
+        return isset($this->container[ $offset ]);
     }
 
     /**
@@ -201,7 +199,7 @@ class FeedList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container[ $offset ]) ? $this->container[ $offset ] : null;
     }
 
     /**
@@ -217,7 +215,7 @@ class FeedList implements ModelInterface, ArrayAccess, IterableType
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
-            $this->container[$offset] = $value;
+            $this->container[ $offset ] = $value;
         }
     }
 
@@ -230,7 +228,7 @@ class FeedList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetUnset($offset)
     {
-        unset($this->container[$offset]);
+        unset($this->container[ $offset ]);
     }
 
     /**

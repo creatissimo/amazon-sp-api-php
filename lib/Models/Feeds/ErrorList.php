@@ -25,10 +25,9 @@ use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 /**
  * ErrorList Class Doc Comment.
  *
-
  * @description A list of error responses returned when a request is unsuccessful.
  *
- * @author   Stefan Neuhaus / ClouSale
+ * @author      Stefan Neuhaus / ClouSale
  */
 class ErrorList implements ModelInterface, ArrayAccess, IterableType
 {
@@ -47,7 +46,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      * @var string[]
      */
     protected static $swaggerTypes = [
-            ];
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -55,7 +54,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      * @var string[]
      */
     protected static $swaggerFormats = [
-            ];
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -84,7 +83,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      * @var string[]
      */
     protected static $attributeMap = [
-            ];
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -92,7 +91,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      * @var string[]
      */
     protected static $setters = [
-            ];
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -100,7 +99,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      * @var string[]
      */
     protected static $getters = [
-            ];
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -167,9 +166,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -192,7 +189,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetExists($offset)
     {
-        return isset($this->container[$offset]);
+        return isset($this->container[ $offset ]);
     }
 
     /**
@@ -204,7 +201,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container[ $offset ]) ? $this->container[ $offset ] : null;
     }
 
     /**
@@ -220,7 +217,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
-            $this->container[$offset] = $value;
+            $this->container[ $offset ] = $value;
         }
     }
 
@@ -233,7 +230,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetUnset($offset)
     {
-        unset($this->container[$offset]);
+        unset($this->container[ $offset ]);
     }
 
     /**

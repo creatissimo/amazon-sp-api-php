@@ -10,7 +10,9 @@
 /**
  * Selling Partner API for Finances.
  *
- * The Selling Partner API for Finances helps you obtain financial information relevant to a seller's business. You can obtain financial events for a given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event groups for a given date range.
+ * The Selling Partner API for Finances helps you obtain financial information relevant to a seller's business. You can obtain financial events for a
+ * given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event
+ * groups for a given date range.
  *
  * OpenAPI spec version: v0
  */
@@ -25,10 +27,9 @@ use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 /**
  * AffordabilityExpenseEventList Class Doc Comment.
  *
-
  * @description A list of expense information related to an affordability promotion.
  *
- * @author   Stefan Neuhaus / ClouSale
+ * @author      Stefan Neuhaus / ClouSale
  */
 class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, IterableType
 {
@@ -47,7 +48,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
      * @var string[]
      */
     protected static $swaggerTypes = [
-            ];
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -55,7 +56,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
      * @var string[]
      */
     protected static $swaggerFormats = [
-            ];
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -84,7 +85,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
      * @var string[]
      */
     protected static $attributeMap = [
-            ];
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -92,7 +93,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
      * @var string[]
      */
     protected static $setters = [
-            ];
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -100,7 +101,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
      * @var string[]
      */
     protected static $getters = [
-            ];
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -167,9 +168,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -192,7 +191,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
      */
     public function offsetExists($offset)
     {
-        return isset($this->container[$offset]);
+        return isset($this->container[ $offset ]);
     }
 
     /**
@@ -204,7 +203,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container[ $offset ]) ? $this->container[ $offset ] : null;
     }
 
     /**
@@ -220,7 +219,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
-            $this->container[$offset] = $value;
+            $this->container[ $offset ] = $value;
         }
     }
 
@@ -233,7 +232,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
      */
     public function offsetUnset($offset)
     {
-        unset($this->container[$offset]);
+        unset($this->container[ $offset ]);
     }
 
     /**

@@ -24,10 +24,9 @@ use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 /**
  * FeedOptions Class Doc Comment.
  *
-
  * @description Additional options to control the feed. These vary by feed type.
  *
- * @author   Stefan Neuhaus / ClouSale
+ * @author      Stefan Neuhaus / ClouSale
  */
 class FeedOptions implements ModelInterface, ArrayAccess
 {
@@ -46,7 +45,7 @@ class FeedOptions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-            ];
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -54,7 +53,7 @@ class FeedOptions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-            ];
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -83,7 +82,7 @@ class FeedOptions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-            ];
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -91,7 +90,7 @@ class FeedOptions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-            ];
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -99,7 +98,7 @@ class FeedOptions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-            ];
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -166,9 +165,7 @@ class FeedOptions implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -191,7 +188,7 @@ class FeedOptions implements ModelInterface, ArrayAccess
      */
     public function offsetExists($offset)
     {
-        return isset($this->container[$offset]);
+        return isset($this->container[ $offset ]);
     }
 
     /**
@@ -203,7 +200,7 @@ class FeedOptions implements ModelInterface, ArrayAccess
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container[ $offset ]) ? $this->container[ $offset ] : null;
     }
 
     /**
@@ -219,7 +216,7 @@ class FeedOptions implements ModelInterface, ArrayAccess
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
-            $this->container[$offset] = $value;
+            $this->container[ $offset ] = $value;
         }
     }
 
@@ -232,7 +229,7 @@ class FeedOptions implements ModelInterface, ArrayAccess
      */
     public function offsetUnset($offset)
     {
-        unset($this->container[$offset]);
+        unset($this->container[ $offset ]);
     }
 
     /**

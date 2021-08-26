@@ -10,7 +10,9 @@
 /**
  * Selling Partner API for Finances.
  *
- * The Selling Partner API for Finances helps you obtain financial information relevant to a seller's business. You can obtain financial events for a given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event groups for a given date range.
+ * The Selling Partner API for Finances helps you obtain financial information relevant to a seller's business. You can obtain financial events for a
+ * given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event
+ * groups for a given date range.
  *
  * OpenAPI spec version: v0
  */
@@ -25,10 +27,9 @@ use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 /**
  * AdjustmentEventList Class Doc Comment.
  *
-
  * @description A list of adjustment event information for the seller&#x27;s account.
  *
- * @author   Stefan Neuhaus / ClouSale
+ * @author      Stefan Neuhaus / ClouSale
  */
 class AdjustmentEventList implements ModelInterface, ArrayAccess, IterableType
 {
@@ -167,9 +168,7 @@ class AdjustmentEventList implements ModelInterface, ArrayAccess, IterableType
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -192,7 +191,7 @@ class AdjustmentEventList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetExists($offset)
     {
-        return isset($this->container[$offset]);
+        return isset($this->container[ $offset ]);
     }
 
     /**
@@ -204,7 +203,7 @@ class AdjustmentEventList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container[ $offset ]) ? $this->container[ $offset ] : null;
     }
 
     /**
@@ -220,7 +219,7 @@ class AdjustmentEventList implements ModelInterface, ArrayAccess, IterableType
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
-            $this->container[$offset] = $value;
+            $this->container[ $offset ] = $value;
         }
     }
 
@@ -233,7 +232,7 @@ class AdjustmentEventList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetUnset($offset)
     {
-        unset($this->container[$offset]);
+        unset($this->container[ $offset ]);
     }
 
     /**

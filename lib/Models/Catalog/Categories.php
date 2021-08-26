@@ -43,9 +43,9 @@ class Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'product_category_id' => 'string',
-'product_category_name' => 'string',
-'parent' => 'object',    ];
+        'product_category_id'   => 'string',
+        'product_category_name' => 'string',
+        'parent'                => 'object',];
 
     /**
      * Array of property to format mappings. Used for (de)serialization.
@@ -53,9 +53,9 @@ class Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'product_category_id' => null,
-'product_category_name' => null,
-'parent' => null,    ];
+        'product_category_id'   => null,
+        'product_category_name' => null,
+        'parent'                => null,];
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -84,9 +84,9 @@ class Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'product_category_id' => 'ProductCategoryId',
-'product_category_name' => 'ProductCategoryName',
-'parent' => 'parent',    ];
+        'product_category_id'   => 'ProductCategoryId',
+        'product_category_name' => 'ProductCategoryName',
+        'parent'                => 'parent',];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses).
@@ -94,9 +94,9 @@ class Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'product_category_id' => 'setProductCategoryId',
-'product_category_name' => 'setProductCategoryName',
-'parent' => 'setParent',    ];
+        'product_category_id'   => 'setProductCategoryId',
+        'product_category_name' => 'setProductCategoryName',
+        'parent'                => 'setParent',];
 
     /**
      * Array of attributes to getter functions (for serialization of requests).
@@ -104,9 +104,9 @@ class Categories implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'product_category_id' => 'getProductCategoryId',
-'product_category_name' => 'getProductCategoryName',
-'parent' => 'getParent',    ];
+        'product_category_id'   => 'getProductCategoryId',
+        'product_category_name' => 'getProductCategoryName',
+        'parent'                => 'getParent',];
 
     /**
      * Array of attributes where the key is the local name,
@@ -164,9 +164,9 @@ class Categories implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['product_category_id'] = isset($data['product_category_id']) ? $data['product_category_id'] : null;
+        $this->container['product_category_id']   = isset($data['product_category_id']) ? $data['product_category_id'] : null;
         $this->container['product_category_name'] = isset($data['product_category_name']) ? $data['product_category_name'] : null;
-        $this->container['parent'] = isset($data['parent']) ? $data['parent'] : null;
+        $this->container['parent']                = isset($data['parent']) ? $data['parent'] : null;
     }
 
     /**
@@ -176,9 +176,7 @@ class Categories implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -273,7 +271,7 @@ class Categories implements ModelInterface, ArrayAccess
      */
     public function offsetExists($offset)
     {
-        return isset($this->container[$offset]);
+        return isset($this->container[ $offset ]);
     }
 
     /**
@@ -285,7 +283,7 @@ class Categories implements ModelInterface, ArrayAccess
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container[ $offset ]) ? $this->container[ $offset ] : null;
     }
 
     /**
@@ -301,7 +299,7 @@ class Categories implements ModelInterface, ArrayAccess
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
-            $this->container[$offset] = $value;
+            $this->container[ $offset ] = $value;
         }
     }
 
@@ -314,7 +312,7 @@ class Categories implements ModelInterface, ArrayAccess
      */
     public function offsetUnset($offset)
     {
-        unset($this->container[$offset]);
+        unset($this->container[ $offset ]);
     }
 
     /**

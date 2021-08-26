@@ -10,7 +10,10 @@
 /**
  * Selling Partner API for FBA Inbound Eligibilty.
  *
- * With the FBA Inbound Eligibility API, you can build applications that let sellers get eligibility previews for items before shipping them to Amazon's fulfillment centers. With this API you can find out if an item is eligible for inbound shipment to Amazon's fulfillment centers in a specific marketplace. You can also find out if an item is eligible for using the manufacturer barcode for FBA inventory tracking. Sellers can use this information to inform their decisions about which items to ship Amazon's fulfillment centers.
+ * With the FBA Inbound Eligibility API, you can build applications that let sellers get eligibility previews for items before shipping them to
+ * Amazon's fulfillment centers. With this API you can find out if an item is eligible for inbound shipment to Amazon's fulfillment centers in a
+ * specific marketplace. You can also find out if an item is eligible for using the manufacturer barcode for FBA inventory tracking. Sellers can use
+ * this information to inform their decisions about which items to ship Amazon's fulfillment centers.
  *
  * OpenAPI spec version: v1
  */
@@ -25,10 +28,9 @@ use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 /**
  * ErrorList Class Doc Comment.
  *
-
  * @description A list of error responses returned when a request is unsuccessful.
  *
- * @author   Stefan Neuhaus / ClouSale
+ * @author      Stefan Neuhaus / ClouSale
  */
 class ErrorList implements ModelInterface, ArrayAccess, IterableType
 {
@@ -167,9 +169,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -192,7 +192,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetExists($offset)
     {
-        return isset($this->container[$offset]);
+        return isset($this->container[ $offset ]);
     }
 
     /**
@@ -204,7 +204,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container[ $offset ]) ? $this->container[ $offset ] : null;
     }
 
     /**
@@ -220,7 +220,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
         if (is_null($offset)) {
             $this->container[] = $value;
         } else {
-            $this->container[$offset] = $value;
+            $this->container[ $offset ] = $value;
         }
     }
 
@@ -233,7 +233,7 @@ class ErrorList implements ModelInterface, ArrayAccess, IterableType
      */
     public function offsetUnset($offset)
     {
-        unset($this->container[$offset]);
+        unset($this->container[ $offset ]);
     }
 
     /**
