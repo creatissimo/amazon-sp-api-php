@@ -40,6 +40,30 @@ class SellingPartnerOAuth
         return $bodyAsJson['access_token'];
     }
 
+    public static function getAccessTokenInfoFromRefreshToken($refreshToken, $clientId, $clientSecret): array
+    {
+        $client  = new Client();
+        $params  = [
+            'grant_type'    => 'refresh_token',
+            'refresh_token' => $refreshToken,
+            'client_id'     => $clientId,
+            'client_secret' => $clientSecret,
+        ];
+        $options = array_merge([
+            RequestOptions::HEADERS     => ['Accept' => 'application/json'],
+            RequestOptions::HTTP_ERRORS => false,
+            'curl'                      => [
+                CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2,
+            ],
+        ], $params ? [RequestOptions::FORM_PARAMS => $params] : []);
+
+        $response = $client->request('POST', 'https://api.amazon.com/auth/o2/token', $options);
+
+        $body = $response->getBody()->getContents();
+
+        return json_decode($body, true);
+    }
+
     /**
      * @throws GuzzleException
      * @throws SellingPartnerOAuthException
