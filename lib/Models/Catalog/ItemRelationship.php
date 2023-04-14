@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * ItemRelationship
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ItemRelationship Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Relationship details for an Amazon catalog item.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class ItemRelationship implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'ItemRelationship';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'child_asins' => 'string[]',
+        'parent_asins' => 'string[]',
+        'variation_theme' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemVariationTheme',
+        'type' => 'string'
     ];
 
     /**
@@ -69,9 +70,10 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'child_asins' => null,
+        'parent_asins' => null,
+        'variation_theme' => null,
+        'type' => null
     ];
 
     /**
@@ -101,9 +103,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'child_asins' => 'childAsins',
+        'parent_asins' => 'parentAsins',
+        'variation_theme' => 'variationTheme',
+        'type' => 'type'
     ];
 
     /**
@@ -112,9 +115,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'child_asins' => 'setChildAsins',
+        'parent_asins' => 'setParentAsins',
+        'variation_theme' => 'setVariationTheme',
+        'type' => 'setType'
     ];
 
     /**
@@ -123,9 +127,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'child_asins' => 'getChildAsins',
+        'parent_asins' => 'getParentAsins',
+        'variation_theme' => 'getVariationTheme',
+        'type' => 'getType'
     ];
 
     /**
@@ -169,8 +174,23 @@ class Error implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_VARIATION = 'VARIATION';
+    const TYPE_PACKAGE_HIERARCHY = 'PACKAGE_HIERARCHY';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_VARIATION,
+            self::TYPE_PACKAGE_HIERARCHY,
+        ];
+    }
     
 
     /**
@@ -188,9 +208,10 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['child_asins'] = isset($data['child_asins']) ? $data['child_asins'] : null;
+        $this->container['parent_asins'] = isset($data['parent_asins']) ? $data['parent_asins'] : null;
+        $this->container['variation_theme'] = isset($data['variation_theme']) ? $data['variation_theme'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -202,12 +223,17 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
+
         return $invalidProperties;
     }
 
@@ -224,73 +250,106 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets child_asins
      *
-     * @return string
+     * @return string[]
      */
-    public function getCode()
+    public function getChildAsins()
     {
-        return $this->container['code'];
+        return $this->container['child_asins'];
     }
 
     /**
-     * Sets code
+     * Sets child_asins
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param string[] $child_asins Identifiers (ASINs) of the related items that are children of this item.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setChildAsins($child_asins)
     {
-        $this->container['code'] = $code;
+        $this->container['child_asins'] = $child_asins;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets parent_asins
      *
-     * @return string
+     * @return string[]
      */
-    public function getMessage()
+    public function getParentAsins()
     {
-        return $this->container['message'];
+        return $this->container['parent_asins'];
     }
 
     /**
-     * Sets message
+     * Sets parent_asins
      *
-     * @param string $message A message that describes the error condition.
+     * @param string[] $parent_asins Identifiers (ASINs) of the related items that are parents of this item.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setParentAsins($parent_asins)
     {
-        $this->container['message'] = $message;
+        $this->container['parent_asins'] = $parent_asins;
 
         return $this;
     }
 
     /**
-     * Gets details
+     * Gets variation_theme
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemVariationTheme
      */
-    public function getDetails()
+    public function getVariationTheme()
     {
-        return $this->container['details'];
+        return $this->container['variation_theme'];
     }
 
     /**
-     * Sets details
+     * Sets variation_theme
      *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemVariationTheme $variation_theme For \"VARIATION\" relationships, variation theme indicating the combination of Amazon item catalog attributes that define the variation family.
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setVariationTheme($variation_theme)
     {
-        $this->container['details'] = $details;
+        $this->container['variation_theme'] = $variation_theme;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Type of relationship.
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

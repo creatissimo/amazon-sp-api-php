@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * Refinements
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * Refinements Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Search refinements.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class Refinements implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'Refinements';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'brands' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\BrandRefinement[]',
+        'classifications' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ClassificationRefinement[]'
     ];
 
     /**
@@ -69,9 +68,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'brands' => null,
+        'classifications' => null
     ];
 
     /**
@@ -101,9 +99,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'brands' => 'brands',
+        'classifications' => 'classifications'
     ];
 
     /**
@@ -112,9 +109,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'brands' => 'setBrands',
+        'classifications' => 'setClassifications'
     ];
 
     /**
@@ -123,9 +119,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'brands' => 'getBrands',
+        'classifications' => 'getClassifications'
     ];
 
     /**
@@ -188,9 +183,8 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['brands'] = isset($data['brands']) ? $data['brands'] : null;
+        $this->container['classifications'] = isset($data['classifications']) ? $data['classifications'] : null;
     }
 
     /**
@@ -202,11 +196,11 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['brands'] === null) {
+            $invalidProperties[] = "'brands' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['classifications'] === null) {
+            $invalidProperties[] = "'classifications' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +218,49 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets brands
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\BrandRefinement[]
      */
-    public function getCode()
+    public function getBrands()
     {
-        return $this->container['code'];
+        return $this->container['brands'];
     }
 
     /**
-     * Sets code
+     * Sets brands
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\BrandRefinement[] $brands Brand search refinements.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setBrands($brands)
     {
-        $this->container['code'] = $code;
+        $this->container['brands'] = $brands;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets classifications
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ClassificationRefinement[]
      */
-    public function getMessage()
+    public function getClassifications()
     {
-        return $this->container['message'];
+        return $this->container['classifications'];
     }
 
     /**
-     * Sets message
+     * Sets classifications
      *
-     * @param string $message A message that describes the error condition.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ClassificationRefinement[] $classifications Classification search refinements.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setClassifications($classifications)
     {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets details
-     *
-     * @return string
-     */
-    public function getDetails()
-    {
-        return $this->container['details'];
-    }
-
-    /**
-     * Sets details
-     *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
-     *
-     * @return $this
-     */
-    public function setDetails($details)
-    {
-        $this->container['details'] = $details;
+        $this->container['classifications'] = $classifications;
 
         return $this;
     }

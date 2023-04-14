@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * ItemSearchResults
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ItemSearchResults Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Items in the Amazon catalog and search related metadata.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class ItemSearchResults implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'ItemSearchResults';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'number_of_results' => 'int',
+        'pagination' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Pagination',
+        'refinements' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Refinements',
+        'items' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Item[]'
     ];
 
     /**
@@ -69,9 +70,10 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'number_of_results' => null,
+        'pagination' => null,
+        'refinements' => null,
+        'items' => null
     ];
 
     /**
@@ -101,9 +103,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'number_of_results' => 'numberOfResults',
+        'pagination' => 'pagination',
+        'refinements' => 'refinements',
+        'items' => 'items'
     ];
 
     /**
@@ -112,9 +115,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'number_of_results' => 'setNumberOfResults',
+        'pagination' => 'setPagination',
+        'refinements' => 'setRefinements',
+        'items' => 'setItems'
     ];
 
     /**
@@ -123,9 +127,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'number_of_results' => 'getNumberOfResults',
+        'pagination' => 'getPagination',
+        'refinements' => 'getRefinements',
+        'items' => 'getItems'
     ];
 
     /**
@@ -188,9 +193,10 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['number_of_results'] = isset($data['number_of_results']) ? $data['number_of_results'] : null;
+        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['refinements'] = isset($data['refinements']) ? $data['refinements'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
     }
 
     /**
@@ -202,11 +208,17 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['number_of_results'] === null) {
+            $invalidProperties[] = "'number_of_results' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['pagination'] === null) {
+            $invalidProperties[] = "'pagination' can't be null";
+        }
+        if ($this->container['refinements'] === null) {
+            $invalidProperties[] = "'refinements' can't be null";
+        }
+        if ($this->container['items'] === null) {
+            $invalidProperties[] = "'items' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +236,97 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets number_of_results
      *
-     * @return string
+     * @return int
      */
-    public function getCode()
+    public function getNumberOfResults()
     {
-        return $this->container['code'];
+        return $this->container['number_of_results'];
     }
 
     /**
-     * Sets code
+     * Sets number_of_results
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param int $number_of_results For `identifiers`-based searches, the total number of Amazon catalog items found. For `keywords`-based searches, the estimated total number of Amazon catalog items matched by the search query (only results up to the page count limit will be returned per request regardless of the number found).  Note: The maximum number of items (ASINs) that can be returned and paged through is 1000.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setNumberOfResults($number_of_results)
     {
-        $this->container['code'] = $code;
+        $this->container['number_of_results'] = $number_of_results;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets pagination
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Pagination
      */
-    public function getMessage()
+    public function getPagination()
     {
-        return $this->container['message'];
+        return $this->container['pagination'];
     }
 
     /**
-     * Sets message
+     * Sets pagination
      *
-     * @param string $message A message that describes the error condition.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Pagination $pagination If available, the `nextToken` and/or `previousToken` values required to return paginated results.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setPagination($pagination)
     {
-        $this->container['message'] = $message;
+        $this->container['pagination'] = $pagination;
 
         return $this;
     }
 
     /**
-     * Gets details
+     * Gets refinements
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Refinements
      */
-    public function getDetails()
+    public function getRefinements()
     {
-        return $this->container['details'];
+        return $this->container['refinements'];
     }
 
     /**
-     * Sets details
+     * Sets refinements
      *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Refinements $refinements Search refinements for `keywords`-based searches.
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setRefinements($refinements)
     {
-        $this->container['details'] = $details;
+        $this->container['refinements'] = $refinements;
+
+        return $this;
+    }
+
+    /**
+     * Gets items
+     *
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Item[]
+     */
+    public function getItems()
+    {
+        return $this->container['items'];
+    }
+
+    /**
+     * Sets items
+     *
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Item[] $items A list of items from the Amazon catalog.
+     *
+     * @return $this
+     */
+    public function setItems($items)
+    {
+        $this->container['items'] = $items;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * ItemSalesRanksByMarketplace
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ItemSalesRanksByMarketplace Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Sales ranks of an Amazon catalog item for the indicated Amazon marketplace.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class ItemSalesRanksByMarketplace implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'ItemSalesRanksByMarketplace';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'marketplace_id' => 'string',
+        'classification_ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemClassificationSalesRank[]',
+        'display_group_ranks' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemDisplayGroupSalesRank[]'
     ];
 
     /**
@@ -69,9 +69,9 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'marketplace_id' => null,
+        'classification_ranks' => null,
+        'display_group_ranks' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'marketplace_id' => 'marketplaceId',
+        'classification_ranks' => 'classificationRanks',
+        'display_group_ranks' => 'displayGroupRanks'
     ];
 
     /**
@@ -112,9 +112,9 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'marketplace_id' => 'setMarketplaceId',
+        'classification_ranks' => 'setClassificationRanks',
+        'display_group_ranks' => 'setDisplayGroupRanks'
     ];
 
     /**
@@ -123,9 +123,9 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'marketplace_id' => 'getMarketplaceId',
+        'classification_ranks' => 'getClassificationRanks',
+        'display_group_ranks' => 'getDisplayGroupRanks'
     ];
 
     /**
@@ -188,9 +188,9 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['marketplace_id'] = isset($data['marketplace_id']) ? $data['marketplace_id'] : null;
+        $this->container['classification_ranks'] = isset($data['classification_ranks']) ? $data['classification_ranks'] : null;
+        $this->container['display_group_ranks'] = isset($data['display_group_ranks']) ? $data['display_group_ranks'] : null;
     }
 
     /**
@@ -202,11 +202,8 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['marketplace_id'] === null) {
+            $invalidProperties[] = "'marketplace_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +221,73 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets marketplace_id
      *
      * @return string
      */
-    public function getCode()
+    public function getMarketplaceId()
     {
-        return $this->container['code'];
+        return $this->container['marketplace_id'];
     }
 
     /**
-     * Sets code
+     * Sets marketplace_id
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param string $marketplace_id Amazon marketplace identifier.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setMarketplaceId($marketplace_id)
     {
-        $this->container['code'] = $code;
+        $this->container['marketplace_id'] = $marketplace_id;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets classification_ranks
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemClassificationSalesRank[]
      */
-    public function getMessage()
+    public function getClassificationRanks()
     {
-        return $this->container['message'];
+        return $this->container['classification_ranks'];
     }
 
     /**
-     * Sets message
+     * Sets classification_ranks
      *
-     * @param string $message A message that describes the error condition.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemClassificationSalesRank[] $classification_ranks Sales ranks of an Amazon catalog item for an Amazon marketplace by classification.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setClassificationRanks($classification_ranks)
     {
-        $this->container['message'] = $message;
+        $this->container['classification_ranks'] = $classification_ranks;
 
         return $this;
     }
 
     /**
-     * Gets details
+     * Gets display_group_ranks
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemDisplayGroupSalesRank[]
      */
-    public function getDetails()
+    public function getDisplayGroupRanks()
     {
-        return $this->container['details'];
+        return $this->container['display_group_ranks'];
     }
 
     /**
-     * Sets details
+     * Sets display_group_ranks
      *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemDisplayGroupSalesRank[] $display_group_ranks Sales ranks of an Amazon catalog item for an Amazon marketplace by website display group.
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setDisplayGroupRanks($display_group_ranks)
     {
-        $this->container['details'] = $details;
+        $this->container['display_group_ranks'] = $display_group_ranks;
 
         return $this;
     }

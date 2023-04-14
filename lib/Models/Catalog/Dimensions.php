@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * Dimensions
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * Dimensions Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Dimensions of an Amazon catalog item or item in its packaging.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class Dimensions implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'Dimensions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'height' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension',
+        'length' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension',
+        'weight' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension',
+        'width' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension'
     ];
 
     /**
@@ -69,9 +70,10 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'height' => null,
+        'length' => null,
+        'weight' => null,
+        'width' => null
     ];
 
     /**
@@ -101,9 +103,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'height' => 'height',
+        'length' => 'length',
+        'weight' => 'weight',
+        'width' => 'width'
     ];
 
     /**
@@ -112,9 +115,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'height' => 'setHeight',
+        'length' => 'setLength',
+        'weight' => 'setWeight',
+        'width' => 'setWidth'
     ];
 
     /**
@@ -123,9 +127,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'height' => 'getHeight',
+        'length' => 'getLength',
+        'weight' => 'getWeight',
+        'width' => 'getWidth'
     ];
 
     /**
@@ -188,9 +193,10 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['length'] = isset($data['length']) ? $data['length'] : null;
+        $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
     }
 
     /**
@@ -202,12 +208,6 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -224,73 +224,97 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets height
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension
      */
-    public function getCode()
+    public function getHeight()
     {
-        return $this->container['code'];
+        return $this->container['height'];
     }
 
     /**
-     * Sets code
+     * Sets height
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension $height Height of an item or item package.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setHeight($height)
     {
-        $this->container['code'] = $code;
+        $this->container['height'] = $height;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets length
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension
      */
-    public function getMessage()
+    public function getLength()
     {
-        return $this->container['message'];
+        return $this->container['length'];
     }
 
     /**
-     * Sets message
+     * Sets length
      *
-     * @param string $message A message that describes the error condition.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension $length Length of an item or item package.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setLength($length)
     {
-        $this->container['message'] = $message;
+        $this->container['length'] = $length;
 
         return $this;
     }
 
     /**
-     * Gets details
+     * Gets weight
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension
      */
-    public function getDetails()
+    public function getWeight()
     {
-        return $this->container['details'];
+        return $this->container['weight'];
     }
 
     /**
-     * Sets details
+     * Sets weight
      *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension $weight Weight of an item or item package.
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setWeight($weight)
     {
-        $this->container['details'] = $details;
+        $this->container['weight'] = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\Dimension $width Width of an item or item package.
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
 
         return $this;
     }

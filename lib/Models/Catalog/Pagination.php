@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * Pagination
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * Pagination Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description When a request produces a response that exceeds the &#x60;pageSize&#x60;, pagination occurs. This means the response is divided into individual pages. To retrieve the next page or the previous page, you must pass the &#x60;nextToken&#x60; value or the &#x60;previousToken&#x60; value as the &#x60;pageToken&#x60; parameter in the next request. When you receive the last page, there will be no &#x60;nextToken&#x60; key in the pagination object.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class Pagination implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'Pagination';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'next_token' => 'string',
+        'previous_token' => 'string'
     ];
 
     /**
@@ -69,9 +68,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'next_token' => null,
+        'previous_token' => null
     ];
 
     /**
@@ -101,9 +99,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'next_token' => 'nextToken',
+        'previous_token' => 'previousToken'
     ];
 
     /**
@@ -112,9 +109,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'next_token' => 'setNextToken',
+        'previous_token' => 'setPreviousToken'
     ];
 
     /**
@@ -123,9 +119,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'next_token' => 'getNextToken',
+        'previous_token' => 'getPreviousToken'
     ];
 
     /**
@@ -188,9 +183,8 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['previous_token'] = isset($data['previous_token']) ? $data['previous_token'] : null;
     }
 
     /**
@@ -202,12 +196,6 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -224,73 +212,49 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets next_token
      *
      * @return string
      */
-    public function getCode()
+    public function getNextToken()
     {
-        return $this->container['code'];
+        return $this->container['next_token'];
     }
 
     /**
-     * Sets code
+     * Sets next_token
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param string $next_token A token that can be used to fetch the next page.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setNextToken($next_token)
     {
-        $this->container['code'] = $code;
+        $this->container['next_token'] = $next_token;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets previous_token
      *
      * @return string
      */
-    public function getMessage()
+    public function getPreviousToken()
     {
-        return $this->container['message'];
+        return $this->container['previous_token'];
     }
 
     /**
-     * Sets message
+     * Sets previous_token
      *
-     * @param string $message A message that describes the error condition.
+     * @param string $previous_token A token that can be used to fetch the previous page.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setPreviousToken($previous_token)
     {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets details
-     *
-     * @return string
-     */
-    public function getDetails()
-    {
-        return $this->container['details'];
-    }
-
-    /**
-     * Sets details
-     *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
-     *
-     * @return $this
-     */
-    public function setDetails($details)
-    {
-        $this->container['details'] = $details;
+        $this->container['previous_token'] = $previous_token;
 
         return $this;
     }

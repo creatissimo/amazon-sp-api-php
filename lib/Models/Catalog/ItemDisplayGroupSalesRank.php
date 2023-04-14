@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * ItemDisplayGroupSalesRank
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ItemDisplayGroupSalesRank Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Sales rank of an Amazon catalog item by website display group.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class ItemDisplayGroupSalesRank implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'ItemDisplayGroupSalesRank';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'website_display_group' => 'string',
+        'title' => 'string',
+        'link' => 'string',
+        'rank' => 'int'
     ];
 
     /**
@@ -69,9 +70,10 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'website_display_group' => null,
+        'title' => null,
+        'link' => null,
+        'rank' => null
     ];
 
     /**
@@ -101,9 +103,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'website_display_group' => 'websiteDisplayGroup',
+        'title' => 'title',
+        'link' => 'link',
+        'rank' => 'rank'
     ];
 
     /**
@@ -112,9 +115,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'website_display_group' => 'setWebsiteDisplayGroup',
+        'title' => 'setTitle',
+        'link' => 'setLink',
+        'rank' => 'setRank'
     ];
 
     /**
@@ -123,9 +127,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'website_display_group' => 'getWebsiteDisplayGroup',
+        'title' => 'getTitle',
+        'link' => 'getLink',
+        'rank' => 'getRank'
     ];
 
     /**
@@ -188,9 +193,10 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['website_display_group'] = isset($data['website_display_group']) ? $data['website_display_group'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
+        $this->container['rank'] = isset($data['rank']) ? $data['rank'] : null;
     }
 
     /**
@@ -202,11 +208,14 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['website_display_group'] === null) {
+            $invalidProperties[] = "'website_display_group' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['rank'] === null) {
+            $invalidProperties[] = "'rank' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +233,97 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets website_display_group
      *
      * @return string
      */
-    public function getCode()
+    public function getWebsiteDisplayGroup()
     {
-        return $this->container['code'];
+        return $this->container['website_display_group'];
     }
 
     /**
-     * Sets code
+     * Sets website_display_group
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param string $website_display_group Name of the website display group associated with the sales rank
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setWebsiteDisplayGroup($website_display_group)
     {
-        $this->container['code'] = $code;
+        $this->container['website_display_group'] = $website_display_group;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets title
      *
      * @return string
      */
-    public function getMessage()
+    public function getTitle()
     {
-        return $this->container['message'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets message
+     * Sets title
      *
-     * @param string $message A message that describes the error condition.
+     * @param string $title Title, or name, of the sales rank.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setTitle($title)
     {
-        $this->container['message'] = $message;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets details
+     * Gets link
      *
      * @return string
      */
-    public function getDetails()
+    public function getLink()
     {
-        return $this->container['details'];
+        return $this->container['link'];
     }
 
     /**
-     * Sets details
+     * Sets link
      *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
+     * @param string $link Corresponding Amazon retail website link, or URL, for the sales rank.
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setLink($link)
     {
-        $this->container['details'] = $details;
+        $this->container['link'] = $link;
+
+        return $this;
+    }
+
+    /**
+     * Gets rank
+     *
+     * @return int
+     */
+    public function getRank()
+    {
+        return $this->container['rank'];
+    }
+
+    /**
+     * Sets rank
+     *
+     * @param int $rank Sales rank value.
+     *
+     * @return $this
+     */
+    public function setRank($rank)
+    {
+        $this->container['rank'] = $rank;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * ItemRelationshipsByMarketplace
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ItemRelationshipsByMarketplace Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Relationship details for the Amazon catalog item for the indicated Amazon marketplace.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class ItemRelationshipsByMarketplace implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'ItemRelationshipsByMarketplace';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'marketplace_id' => 'string',
+        'relationships' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemRelationship[]'
     ];
 
     /**
@@ -69,9 +68,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'marketplace_id' => null,
+        'relationships' => null
     ];
 
     /**
@@ -101,9 +99,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'marketplace_id' => 'marketplaceId',
+        'relationships' => 'relationships'
     ];
 
     /**
@@ -112,9 +109,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'marketplace_id' => 'setMarketplaceId',
+        'relationships' => 'setRelationships'
     ];
 
     /**
@@ -123,9 +119,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'marketplace_id' => 'getMarketplaceId',
+        'relationships' => 'getRelationships'
     ];
 
     /**
@@ -188,9 +183,8 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['marketplace_id'] = isset($data['marketplace_id']) ? $data['marketplace_id'] : null;
+        $this->container['relationships'] = isset($data['relationships']) ? $data['relationships'] : null;
     }
 
     /**
@@ -202,11 +196,11 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['marketplace_id'] === null) {
+            $invalidProperties[] = "'marketplace_id' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['relationships'] === null) {
+            $invalidProperties[] = "'relationships' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +218,49 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets marketplace_id
      *
      * @return string
      */
-    public function getCode()
+    public function getMarketplaceId()
     {
-        return $this->container['code'];
+        return $this->container['marketplace_id'];
     }
 
     /**
-     * Sets code
+     * Sets marketplace_id
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param string $marketplace_id Amazon marketplace identifier.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setMarketplaceId($marketplace_id)
     {
-        $this->container['code'] = $code;
+        $this->container['marketplace_id'] = $marketplace_id;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets relationships
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemRelationship[]
      */
-    public function getMessage()
+    public function getRelationships()
     {
-        return $this->container['message'];
+        return $this->container['relationships'];
     }
 
     /**
-     * Sets message
+     * Sets relationships
      *
-     * @param string $message A message that describes the error condition.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemRelationship[] $relationships Relationships for the item.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setRelationships($relationships)
     {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets details
-     *
-     * @return string
-     */
-    public function getDetails()
-    {
-        return $this->container['details'];
-    }
-
-    /**
-     * Sets details
-     *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
-     *
-     * @return $this
-     */
-    public function setDetails($details)
-    {
-        $this->container['details'] = $details;
+        $this->container['relationships'] = $relationships;
 
         return $this;
     }

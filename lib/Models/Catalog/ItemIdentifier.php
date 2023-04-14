@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * ItemIdentifier
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ItemIdentifier Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Identifier associated with the item in the Amazon catalog, such as a UPC or EAN identifier.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class ItemIdentifier implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'ItemIdentifier';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'identifier_type' => 'string',
+        'identifier' => 'string'
     ];
 
     /**
@@ -69,9 +68,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'identifier_type' => null,
+        'identifier' => null
     ];
 
     /**
@@ -101,9 +99,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'identifier_type' => 'identifierType',
+        'identifier' => 'identifier'
     ];
 
     /**
@@ -112,9 +109,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'identifier_type' => 'setIdentifierType',
+        'identifier' => 'setIdentifier'
     ];
 
     /**
@@ -123,9 +119,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'identifier_type' => 'getIdentifierType',
+        'identifier' => 'getIdentifier'
     ];
 
     /**
@@ -188,9 +183,8 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['identifier_type'] = isset($data['identifier_type']) ? $data['identifier_type'] : null;
+        $this->container['identifier'] = isset($data['identifier']) ? $data['identifier'] : null;
     }
 
     /**
@@ -202,11 +196,11 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['identifier_type'] === null) {
+            $invalidProperties[] = "'identifier_type' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['identifier'] === null) {
+            $invalidProperties[] = "'identifier' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +218,49 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets identifier_type
      *
      * @return string
      */
-    public function getCode()
+    public function getIdentifierType()
     {
-        return $this->container['code'];
+        return $this->container['identifier_type'];
     }
 
     /**
-     * Sets code
+     * Sets identifier_type
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param string $identifier_type Type of identifier, such as UPC, EAN, or ISBN.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setIdentifierType($identifier_type)
     {
-        $this->container['code'] = $code;
+        $this->container['identifier_type'] = $identifier_type;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets identifier
      *
      * @return string
      */
-    public function getMessage()
+    public function getIdentifier()
     {
-        return $this->container['message'];
+        return $this->container['identifier'];
     }
 
     /**
-     * Sets message
+     * Sets identifier
      *
-     * @param string $message A message that describes the error condition.
+     * @param string $identifier Identifier.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setIdentifier($identifier)
     {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets details
-     *
-     * @return string
-     */
-    public function getDetails()
-    {
-        return $this->container['details'];
-    }
-
-    /**
-     * Sets details
-     *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
-     *
-     * @return $this
-     */
-    public function setDetails($details)
-    {
-        $this->container['details'] = $details;
+        $this->container['identifier'] = $identifier;
 
         return $this;
     }

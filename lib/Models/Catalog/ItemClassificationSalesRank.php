@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * ItemClassificationSalesRank
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ItemClassificationSalesRank Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Sales rank of an Amazon catalog item by classification.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class ItemClassificationSalesRank implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'ItemClassificationSalesRank';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'classification_id' => 'string',
+        'title' => 'string',
+        'link' => 'string',
+        'rank' => 'int'
     ];
 
     /**
@@ -69,9 +70,10 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'classification_id' => null,
+        'title' => null,
+        'link' => null,
+        'rank' => null
     ];
 
     /**
@@ -101,9 +103,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'classification_id' => 'classificationId',
+        'title' => 'title',
+        'link' => 'link',
+        'rank' => 'rank'
     ];
 
     /**
@@ -112,9 +115,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'classification_id' => 'setClassificationId',
+        'title' => 'setTitle',
+        'link' => 'setLink',
+        'rank' => 'setRank'
     ];
 
     /**
@@ -123,9 +127,10 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'classification_id' => 'getClassificationId',
+        'title' => 'getTitle',
+        'link' => 'getLink',
+        'rank' => 'getRank'
     ];
 
     /**
@@ -188,9 +193,10 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['classification_id'] = isset($data['classification_id']) ? $data['classification_id'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
+        $this->container['rank'] = isset($data['rank']) ? $data['rank'] : null;
     }
 
     /**
@@ -202,11 +208,14 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['classification_id'] === null) {
+            $invalidProperties[] = "'classification_id' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['rank'] === null) {
+            $invalidProperties[] = "'rank' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +233,97 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets classification_id
      *
      * @return string
      */
-    public function getCode()
+    public function getClassificationId()
     {
-        return $this->container['code'];
+        return $this->container['classification_id'];
     }
 
     /**
-     * Sets code
+     * Sets classification_id
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param string $classification_id Identifier of the classification associated with the sales rank.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setClassificationId($classification_id)
     {
-        $this->container['code'] = $code;
+        $this->container['classification_id'] = $classification_id;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets title
      *
      * @return string
      */
-    public function getMessage()
+    public function getTitle()
     {
-        return $this->container['message'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets message
+     * Sets title
      *
-     * @param string $message A message that describes the error condition.
+     * @param string $title Title, or name, of the sales rank.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setTitle($title)
     {
-        $this->container['message'] = $message;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets details
+     * Gets link
      *
      * @return string
      */
-    public function getDetails()
+    public function getLink()
     {
-        return $this->container['details'];
+        return $this->container['link'];
     }
 
     /**
-     * Sets details
+     * Sets link
      *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
+     * @param string $link Corresponding Amazon retail website link, or URL, for the sales rank.
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setLink($link)
     {
-        $this->container['details'] = $details;
+        $this->container['link'] = $link;
+
+        return $this;
+    }
+
+    /**
+     * Gets rank
+     *
+     * @return int
+     */
+    public function getRank()
+    {
+        return $this->container['rank'];
+    }
+
+    /**
+     * Sets rank
+     *
+     * @param int $rank Sales rank value.
+     *
+     * @return $this
+     */
+    public function setRank($rank)
+    {
+        $this->container['rank'] = $rank;
 
         return $this;
     }

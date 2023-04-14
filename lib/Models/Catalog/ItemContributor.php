@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * ItemContributor
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ItemContributor Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Individual contributor to the creation of an item, such as an author or actor.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class ItemContributor implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'ItemContributor';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'role' => '\ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemContributorRole',
+        'value' => 'string'
     ];
 
     /**
@@ -69,9 +68,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'role' => null,
+        'value' => null
     ];
 
     /**
@@ -101,9 +99,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'role' => 'role',
+        'value' => 'value'
     ];
 
     /**
@@ -112,9 +109,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'role' => 'setRole',
+        'value' => 'setValue'
     ];
 
     /**
@@ -123,9 +119,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'role' => 'getRole',
+        'value' => 'getValue'
     ];
 
     /**
@@ -188,9 +183,8 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -202,11 +196,11 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['role'] === null) {
+            $invalidProperties[] = "'role' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +218,49 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets role
      *
-     * @return string
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemContributorRole
      */
-    public function getCode()
+    public function getRole()
     {
-        return $this->container['code'];
+        return $this->container['role'];
     }
 
     /**
-     * Sets code
+     * Sets role
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ItemContributorRole $role role
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setRole($role)
     {
-        $this->container['code'] = $code;
+        $this->container['role'] = $role;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets value
      *
      * @return string
      */
-    public function getMessage()
+    public function getValue()
     {
-        return $this->container['message'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets message
+     * Sets value
      *
-     * @param string $message A message that describes the error condition.
+     * @param string $value Name of the contributor, such as Jane Austen.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setValue($value)
     {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets details
-     *
-     * @return string
-     */
-    public function getDetails()
-    {
-        return $this->container['details'];
-    }
-
-    /**
-     * Sets details
-     *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
-     *
-     * @return $this
-     */
-    public function setDetails($details)
-    {
-        $this->container['details'] = $details;
+        $this->container['value'] = $value;
 
         return $this;
     }

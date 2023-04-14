@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * ItemVariationTheme
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ItemVariationTheme Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
+ * @description Variation theme indicating the combination of Amazon item catalog attributes that define the variation family.
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class ItemVariationTheme implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'ItemVariationTheme';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'attributes' => 'string[]',
+        'theme' => 'string'
     ];
 
     /**
@@ -69,9 +68,8 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'attributes' => null,
+        'theme' => null
     ];
 
     /**
@@ -101,9 +99,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'attributes' => 'attributes',
+        'theme' => 'theme'
     ];
 
     /**
@@ -112,9 +109,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'attributes' => 'setAttributes',
+        'theme' => 'setTheme'
     ];
 
     /**
@@ -123,9 +119,8 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'attributes' => 'getAttributes',
+        'theme' => 'getTheme'
     ];
 
     /**
@@ -188,9 +183,8 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['theme'] = isset($data['theme']) ? $data['theme'] : null;
     }
 
     /**
@@ -202,12 +196,6 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -224,73 +212,49 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets attributes
      *
-     * @return string
+     * @return string[]
      */
-    public function getCode()
+    public function getAttributes()
     {
-        return $this->container['code'];
+        return $this->container['attributes'];
     }
 
     /**
-     * Sets code
+     * Sets attributes
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param string[] $attributes Names of the Amazon catalog item attributes associated with the variation theme.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setAttributes($attributes)
     {
-        $this->container['code'] = $code;
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets theme
      *
      * @return string
      */
-    public function getMessage()
+    public function getTheme()
     {
-        return $this->container['message'];
+        return $this->container['theme'];
     }
 
     /**
-     * Sets message
+     * Sets theme
      *
-     * @param string $message A message that describes the error condition.
+     * @param string $theme Variation theme indicating the combination of Amazon item catalog attributes that define the variation family.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setTheme($theme)
     {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets details
-     *
-     * @return string
-     */
-    public function getDetails()
-    {
-        return $this->container['details'];
-    }
-
-    /**
-     * Sets details
-     *
-     * @param string $details Additional details that can help the caller understand or fix the issue.
-     *
-     * @return $this
-     */
-    public function setDetails($details)
-    {
-        $this->container['details'] = $details;
+        $this->container['theme'] = $theme;
 
         return $this;
     }
