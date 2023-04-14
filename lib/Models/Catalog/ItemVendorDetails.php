@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ClouSale\AmazonSellingPartnerAPI
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -30,14 +30,14 @@
 namespace ClouSale\AmazonSellingPartnerAPI\Models\Catalog;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
  * ItemVendorDetails Class Doc Comment
  *
  * @category Class
  * @description Vendor details associated with an Amazon catalog item. Vendor details are available to vendors only.
- * @package  Swagger\Client
+ * @package  ClouSale\AmazonSellingPartnerAPI
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */

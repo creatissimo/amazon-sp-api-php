@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ClouSale\AmazonSellingPartnerAPI
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -30,14 +30,14 @@
 namespace ClouSale\AmazonSellingPartnerAPI\Models\Catalog;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
  * ItemAttributes Class Doc Comment
  *
  * @category Class
  * @description A JSON object that contains structured item attribute data keyed by attribute name. Catalog item attributes conform to the related product type definitions available in the Selling Partner API for Product Type Definitions.
- * @package  Swagger\Client
+ * @package  ClouSale\AmazonSellingPartnerAPI
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */

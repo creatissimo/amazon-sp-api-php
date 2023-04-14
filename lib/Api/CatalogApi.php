@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ClouSale\AmazonSellingPartnerAPI
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Swagger\Client\ApiException;
-use Swagger\Client\Configuration;
-use Swagger\Client\HeaderSelector;
-use Swagger\Client\ObjectSerializer;
+use ClouSale\AmazonSellingPartnerAPI\ApiException;
+use ClouSale\AmazonSellingPartnerAPI\Configuration;
+use ClouSale\AmazonSellingPartnerAPI\HeaderSelector;
+use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
  * CatalogApi Class Doc Comment
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ClouSale\AmazonSellingPartnerAPI
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -95,9 +95,9 @@ class CatalogApi
      * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: &#x60;summaries&#x60;. (optional, default to ["summaries"])
      * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ClouSale\AmazonSellingPartnerAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Item
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Item
      */
     public function getCatalogItem($asin, $marketplace_ids, $included_data = '["summaries"]', $locale = null)
     {
@@ -113,13 +113,13 @@ class CatalogApi
      * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: &#x60;summaries&#x60;. (optional, default to ["summaries"])
      * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ClouSale\AmazonSellingPartnerAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Item, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Item, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCatalogItemWithHttpInfo($asin, $marketplace_ids, $included_data = '["summaries"]', $locale = null)
     {
-        $returnType = '\Swagger\Client\Model\Item';
+        $returnType = '\ClouSale\AmazonSellingPartnerAPI\Models\Item';
         $request = $this->getCatalogItemRequest($asin, $marketplace_ids, $included_data, $locale);
 
         try {
@@ -171,7 +171,7 @@ class CatalogApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Item',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\Item',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -179,7 +179,7 @@ class CatalogApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -187,7 +187,7 @@ class CatalogApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -195,7 +195,7 @@ class CatalogApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -203,7 +203,7 @@ class CatalogApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -211,7 +211,7 @@ class CatalogApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -219,7 +219,7 @@ class CatalogApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -227,7 +227,7 @@ class CatalogApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -235,7 +235,7 @@ class CatalogApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -283,7 +283,7 @@ class CatalogApi
      */
     public function getCatalogItemAsyncWithHttpInfo($asin, $marketplace_ids, $included_data = '["summaries"]', $locale = null)
     {
-        $returnType = '\Swagger\Client\Model\Item';
+        $returnType = '\ClouSale\AmazonSellingPartnerAPI\Models\Item';
         $request = $this->getCatalogItemRequest($asin, $marketplace_ids, $included_data, $locale);
 
         return $this->client
@@ -471,9 +471,9 @@ class CatalogApi
      * @param  string $page_token A token to fetch a certain page when there are multiple pages worth of results. (optional)
      * @param  string $keywords_locale The language of the keywords provided for &#x60;keywords&#x60;-based queries. Defaults to the primary locale of the marketplace. **Note:** Cannot be used with &#x60;identifiers&#x60;. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ClouSale\AmazonSellingPartnerAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ItemSearchResults
+     * @return \ClouSale\AmazonSellingPartnerAPI\Models\ItemSearchResults
      */
     public function searchCatalogItems($marketplace_ids, $identifiers = null, $identifiers_type = null, $included_data = '["summaries"]', $locale = null, $seller_id = null, $keywords = null, $brand_names = null, $classification_ids = null, $page_size = '10', $page_token = null, $keywords_locale = null)
     {
@@ -497,13 +497,13 @@ class CatalogApi
      * @param  string $page_token A token to fetch a certain page when there are multiple pages worth of results. (optional)
      * @param  string $keywords_locale The language of the keywords provided for &#x60;keywords&#x60;-based queries. Defaults to the primary locale of the marketplace. **Note:** Cannot be used with &#x60;identifiers&#x60;. (optional)
      *
-     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \ClouSale\AmazonSellingPartnerAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ItemSearchResults, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\ItemSearchResults, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchCatalogItemsWithHttpInfo($marketplace_ids, $identifiers = null, $identifiers_type = null, $included_data = '["summaries"]', $locale = null, $seller_id = null, $keywords = null, $brand_names = null, $classification_ids = null, $page_size = '10', $page_token = null, $keywords_locale = null)
     {
-        $returnType = '\Swagger\Client\Model\ItemSearchResults';
+        $returnType = '\ClouSale\AmazonSellingPartnerAPI\Models\ItemSearchResults';
         $request = $this->searchCatalogItemsRequest($marketplace_ids, $identifiers, $identifiers_type, $included_data, $locale, $seller_id, $keywords, $brand_names, $classification_ids, $page_size, $page_token, $keywords_locale);
 
         try {
@@ -555,7 +555,7 @@ class CatalogApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ItemSearchResults',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ItemSearchResults',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -563,7 +563,7 @@ class CatalogApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -571,7 +571,7 @@ class CatalogApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -579,7 +579,7 @@ class CatalogApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -587,7 +587,7 @@ class CatalogApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -595,7 +595,7 @@ class CatalogApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -603,7 +603,7 @@ class CatalogApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -611,7 +611,7 @@ class CatalogApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -619,7 +619,7 @@ class CatalogApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\ErrorList',
+                        '\ClouSale\AmazonSellingPartnerAPI\Models\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -683,7 +683,7 @@ class CatalogApi
      */
     public function searchCatalogItemsAsyncWithHttpInfo($marketplace_ids, $identifiers = null, $identifiers_type = null, $included_data = '["summaries"]', $locale = null, $seller_id = null, $keywords = null, $brand_names = null, $classification_ids = null, $page_size = '10', $page_token = null, $keywords_locale = null)
     {
-        $returnType = '\Swagger\Client\Model\ItemSearchResults';
+        $returnType = '\ClouSale\AmazonSellingPartnerAPI\Models\ItemSearchResults';
         $request = $this->searchCatalogItemsRequest($marketplace_ids, $identifiers, $identifiers_type, $included_data, $locale, $seller_id, $keywords, $brand_names, $classification_ids, $page_size, $page_token, $keywords_locale);
 
         return $this->client

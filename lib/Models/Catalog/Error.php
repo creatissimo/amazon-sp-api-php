@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Swagger\Client
+ * @package  ClouSale\AmazonSellingPartnerAPI
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -30,14 +30,14 @@
 namespace ClouSale\AmazonSellingPartnerAPI\Models\Catalog;
 
 use \ArrayAccess;
-use \Swagger\Client\ObjectSerializer;
+use \ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
  * Error Class Doc Comment
  *
  * @category Class
  * @description Error response returned when the request is unsuccessful.
- * @package  Swagger\Client
+ * @package  ClouSale\AmazonSellingPartnerAPI
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
